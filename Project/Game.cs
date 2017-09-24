@@ -179,7 +179,6 @@ namespace CastleGrimtol.Project
             // bool Attacking = true;
             while (Running)
             {
-                Console.Clear();
                 System.Console.WriteLine($"Onward we go then, {CurrentPlayer.Name} \n");
                 System.Console.WriteLine("Well you've managed to make it inside, so that's a good start. As far as I can tell, there is no exit besides the way we just came in, which we can't exit out of for reasons I don't wish to explain right now. However, if we want to go deeper into the cave, there is a doorway along the South wall");
                 while (Rooming)
@@ -1554,8 +1553,21 @@ namespace CastleGrimtol.Project
                 }
             }
             Rooms[AtRoom].Monsters.RemoveAt(Index);
-            System.Console.WriteLine("\nIT WAS JUST A DWARF YOU DIDN'T HAVE TO KILL HIM, AND WITH YOU BARE HANDS NO LESS.\nYou should be ashamed.\nIt's not like it was going to throw an axe at you or anything.\nI'm taking away point for that.\n\n");
-            CurrentPlayer.Score -= 10;
+            System.Console.WriteLine("\nIT WAS JUST A DWARF YOU DIDN'T HAVE TO KILL HIM, AND WITH YOU BARE HANDS NO LESS.\nYou should be ashamed.\nIt's not like it was going to throw an axe at you or anything.\nI'm taking away points for that.\n");
+            Console.ForegroundColor = ConsoleColor.Red;
+            System.Console.WriteLine("You know what, nevermind, I'm not just taking away points. You lose.\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            CurrentPlayer.Score = 0;
+            AtRoom = 0;
+            CurrentPlayer.Inventory.Clear();
+            Setup(CurrentPlayer.Name);
+            Reset();
+            TakeKey = false;
+            S8 = false;
+            S10 = false;
+            S11 = false;
+            S13 = false;
+
         }
 
         public void AttackSkeletonSword()
