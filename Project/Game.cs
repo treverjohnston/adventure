@@ -72,15 +72,15 @@ namespace CastleGrimtol.Project
             List<Item> Empty = new List<Item>();
 
             // CREATING ROOMS
-            Room Zero = new Room("0", "You are in the room you woke up in.", ZeroItems, EmptyMonsters, false);
+            Room Zero = new Room("0", "You are in the room you woke up in. There is a door to the South", ZeroItems, EmptyMonsters, false);
             Room One = new Room("1", "You are in a large cavern.\nIt looks like there are doors to the east and west.", Empty, OneMonsters, false);
             Room Two = new Room("2", "You are in a small room that is faintly illuminated. There don't appear to be any exits. Behind you is the cavern you just came in through.", TwoItems, TwoMonsters, false);
             Room Three = new Room("3", "This appears to be an almost completely empty room.. ah wait, what's that over there..", Empty, ThreeMonsters, false);
-            Room Four = new Room("4", "You are in a narrow hallway.", FourItems, FourMonsters, true);
+            Room Four = new Room("4", "You are in a narrow hallway. There is a door to the South.", FourItems, FourMonsters, true);
             Room Five = new Room("5", "You are now in a large hall, this one extends far to the West", FiveItems, FiveMonsters, false);
             Room Six = new Room("6", "Another dead end room.", SixItems, SixMonsters, false);
             Room Seven = new Room("7", "This appears to be a sort of storage closet with another door on the South side.. But it's locked..", SevenItems, SevenMonsters, false);
-            Room Eight = new Room("8", "You stand in the middle of a hallway, with exits to the East and West..", Empty, EmptyMonsters, true);
+            Room Eight = new Room("8", "You stand in a hallway, with exits to the East and West..", Empty, EmptyMonsters, true);
             Room Nine = new Room("9", "WOAH THERE'S A SORCERER IN HERE STANDING BETWEEN PILLARS OF FIRE", Empty, EmptyMonsters, false);
             Room Ten = new Room("10", "You are in a small room, with a smallish door along the South wall", TenItems, EmptyMonsters, false);
             Room Eleven = new Room("11", "You are now in another small room, nearly identical to the one you just exited, it looks like there is only an exit to the South again", ElevenItems, ElevenMonsters, false);
@@ -118,7 +118,7 @@ namespace CastleGrimtol.Project
             Item Key = new Item("Key", "On the ground lies an old key...\nIt doesn't look all that special.. but who knows");
             Item GoodSword = new Item("Shiny Sword", "On the ground lies a Super shiny sword...\nOoohhh Shiny");
             Item Bomb = new Item("Bomb", "On the ground lies a large round black object...\nOh wait that's a bomb.");
-            Item Bow = new Item("Bow", "On  the ground lies a bow...\nOh hey and some arrows too!");
+            Item Bow = new Item("Bow and Arrows", "On  the ground lies a bow...\nOh hey and some arrows too!");
             Item Heart = new Item("Heart", "On the ground lies a heart...\nThat's pretty gross.");
             Item Force = new Item("Force", "On the ground lies a super shiny triangle shaped object...\nI got not clue what this thing is");
 
@@ -347,7 +347,7 @@ namespace CastleGrimtol.Project
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY")
+                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -356,7 +356,7 @@ namespace CastleGrimtol.Project
                             }
                             else
                             {
-                                System.Console.WriteLine("You make a mad dash for the key on the ground, but as you get nearly within grabbing distance, the bats begin to swoop down attack you, you are forced to retreat back towards the entrance, away from the key.");
+                                System.Console.WriteLine("You make a mad dash for the key on the ground, but as you get nearly within grabbing distance, the bats begin to swoop down and attack you, you are forced to retreat back towards the entrance, away from the key.");
                             }
                         }
 
@@ -554,7 +554,7 @@ namespace CastleGrimtol.Project
                             }
 
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY")
+                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -622,7 +622,7 @@ namespace CastleGrimtol.Project
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY")
+                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -630,7 +630,7 @@ namespace CastleGrimtol.Project
                             }
                             else
                             {
-                                System.Console.WriteLine("You make a mad dash for the key on the ground, but as you get nearly within grabbing distance, the bats begin to swoop down attack you, you are forced to retreat back towards the entrance, away from the key.");
+                                System.Console.WriteLine("You make a mad dash for the key on the ground, but as you get nearly within grabbing distance, the bats begin to swoop down and attack you, you are forced to retreat back towards the entrance, away from the key.");
                             }
                         }
 
@@ -770,7 +770,7 @@ namespace CastleGrimtol.Project
                         if (!S8)
                         {
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            System.Console.WriteLine("The Sorcerer speaks, saying 'Ahead lie rooms filled with riddles. If you ever hope to escape, you must answer the riddles correctly.'\nThe Sorcerer stares at you for a few more moments, and then poofs away in a cloud of smoke.");
+                            System.Console.WriteLine("The Sorcerer speaks, saying 'As you continue your journey, you will now encounter rooms filled with riddles. If you ever hope to escape, you must answer the riddles correctly.'\nThe Sorcerer stares at you for a few more moments, and then poofs away in a cloud of smoke.");
                             Console.ForegroundColor = ConsoleColor.Gray;
                             S8 = true;
                         }
@@ -886,7 +886,7 @@ namespace CastleGrimtol.Project
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "PICK UP BOW" || Answer == "GRAB BOW")
+                        else if (Answer == "PICK UP BOW" || Answer == "GRAB BOW" || Answer == "PICK UP ARROW" || Answer == "GRAB ARROW" )
                         {
                             if (S10)
                             {
@@ -894,7 +894,7 @@ namespace CastleGrimtol.Project
                             }
                             else
                             {
-                                System.Console.WriteLine("As you begin to move towards the bow, the Sorcerer raises a hand and a ball of fire leaps from it towards your feet, you quickly back away into the doorway you came from and ponder your life decisions.");
+                                System.Console.WriteLine("As you begin to move towards the bow and arrows, the Sorcerer raises a hand and a ball of fire leaps from it towards your feet, you quickly back away into the doorway you came from and ponder your life decisions.");
                             }
                         }
 
@@ -996,7 +996,7 @@ namespace CastleGrimtol.Project
                             }
 
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY")
+                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -1087,7 +1087,7 @@ namespace CastleGrimtol.Project
                         {
                             UseBowBears();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY")
+                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -1703,7 +1703,7 @@ namespace CastleGrimtol.Project
         {
             foreach (var item in Rooms[AtRoom].Items)
             {
-                if (item.Name == "Bow")
+                if (item.Name == "Bow and Arrows")
                 {
                     Index = Rooms[AtRoom].Items.IndexOf(item);
                 }
