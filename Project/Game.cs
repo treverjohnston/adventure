@@ -1874,7 +1874,7 @@ namespace CastleGrimtol.Project
         public void Intro()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine($"\nTrever's Score: {CurrentPlayer.Score}\n");
+            System.Console.WriteLine($"\n{CurrentPlayer.Name}'s Score: {CurrentPlayer.Score}\n");
             foreach (var item in CurrentPlayer.Inventory)
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
