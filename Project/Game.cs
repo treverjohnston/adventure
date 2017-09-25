@@ -191,24 +191,24 @@ namespace CastleGrimtol.Project
                         Answer = Console.ReadLine().ToUpper();
                         Console.Clear();
 
-                        if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             AtRoom = 1;
                             System.Console.WriteLine("\nWent south\n");
                         }
-                        else if (Answer == "PICK UP SWORD" || Answer == "GRAB SWORD")
+                        else if (Answer.Trim() == "PICK UP SWORD" || Answer.Trim() == "GRAB SWORD")
                         {
                             GrabBasic();
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -237,20 +237,20 @@ namespace CastleGrimtol.Project
                         Answer = Console.ReadLine().ToUpper();
                         Console.Clear();
 
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             // System.Console.WriteLine("\nChicken.");
                             AtRoom = 0;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             AtRoom = 2;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             AtRoom = 3;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             if (Rooms[4].Locked)
                             {
@@ -262,11 +262,11 @@ namespace CastleGrimtol.Project
                                 AtRoom = 4;
                             }
                         }
-                        else if (Answer == "ATTACK" || Answer == "ATTACK DRAGONS" || Answer == "ATTACK MINIATURE DRAGONS" || Answer == "KILL MINIATURE DRAGONS")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK DRAGONS" || Answer.Trim() == "ATTACK MINIATURE DRAGONS" || Answer.Trim() == "KILL MINIATURE DRAGONS")
                         {
                             AttackMiniSword();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK DRAGONS WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK DRAGONS WITH SWORD")
                         {
                             foreach (var item in CurrentPlayer.Inventory)
                             {
@@ -284,15 +284,15 @@ namespace CastleGrimtol.Project
                                 }
                             }
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -305,49 +305,49 @@ namespace CastleGrimtol.Project
                     {
                         Intro();
                         System.Console.WriteLine($"\nSo, what do you think, {CurrentPlayer.Name}?");
-                        Answer = Console.ReadLine().ToUpper();
+                        Answer = Console.ReadLine().ToUpper().Trim();
                         Console.Clear();
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East.\n");
                             AtRoom = 1;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "ATTACK" || Answer == "ATTACK BATS" || Answer == "ATTACK BAT" || Answer == "KILL BAT" || Answer == "KILL BATS")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK BATS" || Answer.Trim() == "ATTACK BAT" || Answer.Trim() == "KILL BAT" || Answer.Trim() == "KILL BATS")
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK BAT WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK BAT WITH SWORD")
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
+                        else if (Answer.Trim() == "PICK UP KEY" || Answer.Trim() == "GRAB KEY" || Answer.Trim() == "GRAB KEYS" || Answer.Trim() == "GRAB OLD KEY" || Answer.Trim() == "GRAB OLD KEYS" || Answer.Trim() == "TAKE OLD KEY" || Answer.Trim() == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -376,42 +376,42 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 1;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "ATTACK" || Answer == "ATTACK DWARF" || Answer == "ATTACK DWARF" || Answer == "KILL DWARF")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK DWARF" || Answer.Trim() == "ATTACK DWARF" || Answer.Trim() == "KILL DWARF")
                         {
                             AttackDwarf();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK DWARF WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK DWARF WITH SWORD")
                         {
                             AttackDwarf();
 
@@ -434,39 +434,39 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 1;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
 
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             CheckMonsters();
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "PICK UP SWORD" || Answer == "GRAB SWORD" || Answer == "TAKE SWORD" || Answer == "PICK UP SHINY SWORD" || Answer == "GRAB SHINY SWORD" || Answer == "TAKE SHINY SWORD")
+                        else if (Answer.Trim() == "PICK UP SWORD" || Answer.Trim() == "GRAB SWORD" || Answer.Trim() == "TAKE SWORD" || Answer.Trim() == "PICK UP SHINY SWORD" || Answer.Trim() == "GRAB SHINY SWORD" || Answer.Trim() == "TAKE SHINY SWORD")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -477,13 +477,13 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("You attempt to grab the shiny sword, but the skeleton notices you so you have to back away.");
                             }
                         }
-                        else if (Answer == "ATTACK" || Answer == "ATTACK SKELETON" || Answer == "KILL SKELETON")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK SKELETON" || Answer.Trim() == "KILL SKELETON")
                         {
 
                             AttackSkeletonSword();
 
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK SKELETON WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK SKELETON WITH SWORD")
                         {
 
                             AttackSkeletonSword();
@@ -505,45 +505,45 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 4;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                             // System.Console.WriteLine("You go East.\n");
                             // AtRoom = 6;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 7;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "ATTACK" || Answer == "ATTACK SKELETON" || Answer == "KILL SKELETON")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK SKELETON" || Answer.Trim() == "KILL SKELETON")
                         {
                             AttackSkeletonSword();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK SKELETON WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK SKELETON WITH SWORD")
                         {
                             foreach (var item in CurrentPlayer.Inventory)
                             {
@@ -554,7 +554,7 @@ namespace CastleGrimtol.Project
                             }
 
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
+                        else if (Answer.Trim() == "PICK UP KEY" || Answer.Trim() == "GRAB KEY" || Answer.Trim() == "GRAB KEYS" || Answer.Trim() == "GRAB OLD KEY" || Answer.Trim() == "GRAB OLD KEYS" || Answer.Trim() == "TAKE OLD KEY" || Answer.Trim() == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -582,47 +582,47 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
 
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 5;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "ATTACK" || Answer == "ATTACK BATS" || Answer == "ATTACK BAT" || Answer == "KILL BAT" || Answer == "KILL BATS")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK BATS" || Answer.Trim() == "ATTACK BAT" || Answer.Trim() == "KILL BAT" || Answer.Trim() == "KILL BATS")
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK BAT WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK BAT WITH SWORD")
                         {
                             AttackBatSword();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
+                        else if (Answer.Trim() == "PICK UP KEY" || Answer.Trim() == "GRAB KEY" || Answer.Trim() == "GRAB KEYS" || Answer.Trim() == "GRAB OLD KEY" || Answer.Trim() == "GRAB OLD KEYS" || Answer.Trim() == "TAKE OLD KEY" || Answer.Trim() == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -649,19 +649,19 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("Well shoot that door disappeared. That's really odd.\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             if (Rooms[8].Locked)
                             {
@@ -673,26 +673,26 @@ namespace CastleGrimtol.Project
                                 AtRoom = 8;
                             }
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
 
-                        else if (Answer == "ATTACK" || Answer == "ATTACK BATS" || Answer == "ATTACK BAT" || Answer == "KILL BAT" || Answer == "KILL BATS")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK BATS" || Answer.Trim() == "ATTACK BAT" || Answer.Trim() == "KILL BAT" || Answer.Trim() == "KILL BATS")
                         {
                             AttackBatSwordGood();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK BAT WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK BAT WITH SWORD")
                         {
                             AttackBatSwordGood();
                         }
@@ -712,7 +712,7 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             if (S8)
                             {
@@ -727,29 +727,29 @@ namespace CastleGrimtol.Project
 
                             }
                         }
-                        else if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        else if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 7;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 9;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -779,32 +779,32 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East.\n");
                             AtRoom = 8;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -834,21 +834,21 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
 
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 8;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             if (S10)
                             {
@@ -860,7 +860,7 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("You begin to walk towards the Southern door, but the Sorcerers eyes start to glow red so you go back into your corner and ponder the riddle a little longer.");
                             }
                         }
-                        else if (Answer == "MOUNTAINS" || Answer == "MOUNTAIN")
+                        else if (Answer.Trim() == "MOUNTAINS" || Answer.Trim() == "MOUNTAIN")
                         {
                             if (!S10)
                             {
@@ -872,21 +872,21 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("The riddle has already been solved");
                             }
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "PICK UP BOW" || Answer == "GRAB BOW" || Answer == "PICK UP ARROW" || Answer == "GRAB ARROW" )
+                        else if (Answer.Trim() == "PICK UP BOW" || Answer.Trim() == "GRAB BOW" || Answer.Trim() == "PICK UP ARROW" || Answer.Trim() == "GRAB ARROW" )
                         {
                             if (S10)
                             {
@@ -920,20 +920,20 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 10;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             if (S11)
                             {
@@ -952,22 +952,22 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("As you begin to try and sneak past the sorcerer, he nods toward the skeleton which then throws a knife just past your ear. You then move back to the doorway from whence you came.");
                             }
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
 
-                        else if (Answer == "ATTACK" || Answer == "ATTACK SKELETON" || Answer == "KILL SKELETON")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK SKELETON" || Answer.Trim() == "KILL SKELETON")
                         {
                             if (S11)
                             {
@@ -978,7 +978,7 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("You make a move toward the skeleton, but as you get close to striking distance, the Sorcerer raises his hand and you suddenly feel yourself being pushed back towards the entrance.");
                             }
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK SKELETON WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK SKELETON WITH SWORD")
                         {
                             if (S11)
                             {
@@ -996,7 +996,7 @@ namespace CastleGrimtol.Project
                             }
 
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
+                        else if (Answer.Trim() == "PICK UP KEY" || Answer.Trim() == "GRAB KEY" || Answer.Trim() == "GRAB KEYS" || Answer.Trim() == "GRAB OLD KEY" || Answer.Trim() == "GRAB OLD KEYS" || Answer.Trim() == "TAKE OLD KEY" || Answer.Trim() == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -1008,7 +1008,7 @@ namespace CastleGrimtol.Project
                                 System.Console.WriteLine("You begin to slowly walk towards the key, hoping the skeleton won't notice you if you move slowly enough, but before you move two paces, the skeletons gives you an icy glare.. so you move away from the key.");
                             }
                         }
-                        else if (Answer == "TIME")
+                        else if (Answer.Trim() == "TIME")
                         {
                             if (!S11)
                             {
@@ -1036,16 +1036,16 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 11;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             if (Rooms[13].Locked)
                             {
@@ -1057,37 +1057,37 @@ namespace CastleGrimtol.Project
                                 AtRoom = 13;
                             }
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "ATTACK" || Answer == "ATTACK BEARS" || Answer == "ATTACK BEAR" || Answer == "KILL BEAR" || Answer == "KILL BEARS")
+                        else if (Answer.Trim() == "ATTACK" || Answer.Trim() == "ATTACK BEARS" || Answer.Trim() == "ATTACK BEAR" || Answer.Trim() == "KILL BEAR" || Answer.Trim() == "KILL BEARS")
                         {
                             UseBowBears();
                         }
-                        else if (Answer == "USE SWORD" || Answer == "ATTACK WITH SWORD" || Answer == "ATTACK SWORD" || Answer == "ATTACK BEARS WITH SWORD")
+                        else if (Answer.Trim() == "USE SWORD" || Answer.Trim() == "ATTACK WITH SWORD" || Answer.Trim() == "ATTACK SWORD" || Answer.Trim() == "ATTACK BEARS WITH SWORD")
                         {
                             UseSwordOther();
                         }
-                        else if (Answer == "USE BOW" || Answer == "ATTACK WITH BOW" || Answer == "ATTACK BOW" || Answer == "ATTACK BEARS WITH BOW")
+                        else if (Answer.Trim() == "USE BOW" || Answer.Trim() == "ATTACK WITH BOW" || Answer.Trim() == "ATTACK BOW" || Answer.Trim() == "ATTACK BEARS WITH BOW")
                         {
                             UseBowBears();
                         }
-                        else if (Answer == "PICK UP KEY" || Answer == "GRAB KEY" || Answer == "GRAB KEYS" || Answer == "GRAB OLD KEY" || Answer == "GRAB OLD KEYS" || Answer == "TAKE OLD KEY" || Answer == "TAKE OLD KEYS")
+                        else if (Answer.Trim() == "PICK UP KEY" || Answer.Trim() == "GRAB KEY" || Answer.Trim() == "GRAB KEYS" || Answer.Trim() == "GRAB OLD KEY" || Answer.Trim() == "GRAB OLD KEYS" || Answer.Trim() == "TAKE OLD KEY" || Answer.Trim() == "TAKE OLD KEYS")
                         {
                             if (Rooms[AtRoom].Monsters.Count == 0)
                             {
@@ -1123,38 +1123,38 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East.\n");
                             AtRoom = 12;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
                         // // // // // // // // // // // // // //
                         // THIS IS WHERE ROOM SPECIFIC COMMANDS GO
-                        else if (Answer == "42" || Answer == "FOURTY TWO" || Answer == "FOURTY-TWO" || Answer == "FOURTYTWO")
+                        else if (Answer.Trim() == "42" || Answer.Trim() == "FOURTY TWO" || Answer.Trim() == "FOURTY-TWO" || Answer.Trim() == "FOURTYTWO")
                         {
                             if (!S13)
                             {
@@ -1184,33 +1184,33 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East.\n");
                             AtRoom = 15;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 10;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -1233,33 +1233,33 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 14;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South.\n");
                             AtRoom = 16;
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -1282,33 +1282,33 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North.\n");
                             AtRoom = 15;
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East.\n");
                             AtRoom = 17;
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -1331,32 +1331,32 @@ namespace CastleGrimtol.Project
                         Console.Clear();
                         // // // // // // // // // // // // // //
                         // // // // // // // // // // // // // //
-                        if (Answer == "GO NORTH" || Answer == "NORTH" || Answer == "N")
+                        if (Answer.Trim() == "GO NORTH" || Answer.Trim() == "NORTH" || Answer.Trim() == "N")
                         {
                             System.Console.WriteLine("You go North, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO EAST" || Answer == "EAST" || Answer == "E")
+                        else if (Answer.Trim() == "GO EAST" || Answer.Trim() == "EAST" || Answer.Trim() == "E")
                         {
                             System.Console.WriteLine("You go East, and promptly run into a wall\n");
                         }
-                        else if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                        else if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                         {
                             System.Console.WriteLine("You go West.\n");
                             AtRoom = 16;
                         }
-                        else if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                        else if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                         {
                             System.Console.WriteLine("You go South, and promptly run into a wall\n");
                         }
-                        else if (Answer == "HELP")
+                        else if (Answer.Trim() == "HELP")
                         {
-                            System.Console.WriteLine("This game isn't all knowing, you can't be too vague or it won't know what you want to do. For example if you wanted to use your sword to attack a monster, you can't just say 'fight' and expect it to work.\nOn the other hand, you can't be overly specific.  For example you can't expect to say 'hey go attack that monster over there with a sword' and have that work.\nSome basic commands are directional, such as 'go north', or 'south', or 'w'.  Another basic command is 'grab', which allows you to pick up an object in a room.  If you want to use this object, simply say 'use 'object''\nIf at any point you wish to quit, just enter 'quit', however, don't expect your progress to be saved.\n");
+                            System.Console.WriteLine("-To pick something up - 'Grab [item]'\nTo attack something  - 'Attack [monster]'\nTo quit -'Quit'\nTo go a direction (N,E,S,W)'[Direction]'\n");
                         }
-                        else if (Answer == "QUIT")
+                        else if (Answer.Trim() == "QUIT")
                         {
                             System.Environment.Exit(0);
                         }
-                        else if (Answer == "INVENTORY")
+                        else if (Answer.Trim() == "INVENTORY")
                         {
                             SeeInventory();
                         }
@@ -1720,7 +1720,7 @@ namespace CastleGrimtol.Project
             {
                 if (item.Name == "Key")
                 {
-                    if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                    if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                     {
                         foreach (var room in Rooms)
                         {
@@ -1745,7 +1745,7 @@ namespace CastleGrimtol.Project
             {
                 if (item.Name == "Key")
                 {
-                    if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                    if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                     {
                         foreach (var room in Rooms)
                         {
@@ -1774,7 +1774,7 @@ namespace CastleGrimtol.Project
             {
                 if (item.Name == "Key")
                 {
-                    if (Answer == "GO SOUTH" || Answer == "SOUTH" || Answer == "S")
+                    if (Answer.Trim() == "GO SOUTH" || Answer.Trim() == "SOUTH" || Answer.Trim() == "S")
                     {
                         foreach (var room in Rooms)
                         {
@@ -1808,7 +1808,7 @@ namespace CastleGrimtol.Project
             {
                 if (item.Name == "Key")
                 {
-                    if (Answer == "GO WEST" || Answer == "WEST" || Answer == "W")
+                    if (Answer.Trim() == "GO WEST" || Answer.Trim() == "WEST" || Answer.Trim() == "W")
                     {
                         foreach (var room in Rooms)
                         {
