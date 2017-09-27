@@ -1610,7 +1610,7 @@ namespace CastleGrimtol.Project
         {
             foreach (var item in CurrentPlayer.Inventory)
             {
-                if (item.Name == "Bow")
+                if (item.Name == "Bow and Arrows")
                 {
                     System.Console.WriteLine("yeahhhhh that's not gonna work here..");
                 }
