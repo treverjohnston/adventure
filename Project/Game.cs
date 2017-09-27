@@ -1625,7 +1625,7 @@ namespace CastleGrimtol.Project
         {
             foreach (var item in CurrentPlayer.Inventory)
             {
-                if (item.Name == "Bow")
+                if (item.Name == "Bow and Arrows")
                 {
                     foreach (var monster in Rooms[AtRoom].Monsters)
                     {
